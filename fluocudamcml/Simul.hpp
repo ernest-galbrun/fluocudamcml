@@ -65,6 +65,8 @@ class Simulation{
 	//cuda data :
  float4 *data;
  float2 *fluo_data;
+ float* quantum_yields;
+ int *fluo_count; //number of fluorophores in each layer
  unsigned int *photonsToLaunch;
  unsigned int *photonsLaunched;
  float2* fibersDesc;
