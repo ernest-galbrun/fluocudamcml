@@ -411,7 +411,7 @@ void Simulation::LaunchSimulation(ostream &out, ostream &out_fibers){
     }
     for (int i = 0; i < N_WAVELENGTH; ++i){
         for (size_t j = 0; j < nf; ++j){
-            out_fibers << host_result_fiber[j + i* nf] / scale1 << '\t';
+            out_fibers << host_result_fiber[j + i* nf] /*/ scale1*/ << '\t';
         }
         out_fibers << endl;
     }
