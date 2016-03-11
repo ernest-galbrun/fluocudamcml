@@ -73,6 +73,9 @@
       <AdditionalLibraryDirectories>C:\ProgramData\NVIDIA Corporation\NVIDIA GPU Computing SDK 4.0\C\common\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>cudart.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <CudaCompile>
+      <CodeGeneration>compute_35,sm_35</CodeGeneration>
+    </CudaCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -92,7 +95,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 6.5.targets" />
-	<Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+    <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
     <Import Project="..\..\NugetsPackages\boost.1.58.0.0\build\native\boost.targets" Condition="Exists('..\..\NugetsPackages\boost.1.58.0.0\build\native\boost.targets')" />
     <Import Project="..\..\NugetsPackages\boost_atomic-vc120.1.58.0.0\build\native\boost_atomic-vc120.targets" Condition="Exists('..\..\NugetsPackages\boost_atomic-vc120.1.58.0.0\build\native\boost_atomic-vc120.targets')" />
     <Import Project="..\..\NugetsPackages\boost_chrono-vc120.1.58.0.0\build\native\boost_chrono-vc120.targets" Condition="Exists('..\..\NugetsPackages\boost_chrono-vc120.1.58.0.0\build\native\boost_chrono-vc120.targets')" />
@@ -132,7 +135,7 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-	<Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
     <Error Condition="!Exists('..\..\NugetsPackages\boost.1.58.0.0\build\native\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\NugetsPackages\boost.1.58.0.0\build\native\boost.targets'))" />
     <Error Condition="!Exists('..\..\NugetsPackages\boost_atomic-vc120.1.58.0.0\build\native\boost_atomic-vc120.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\NugetsPackages\boost_atomic-vc120.1.58.0.0\build\native\boost_atomic-vc120.targets'))" />
     <Error Condition="!Exists('..\..\NugetsPackages\boost_chrono-vc120.1.58.0.0\build\native\boost_chrono-vc120.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\NugetsPackages\boost_chrono-vc120.1.58.0.0\build\native\boost_chrono-vc120.targets'))" />

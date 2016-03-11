@@ -1,5 +1,5 @@
 #N photons
-100000
+10000000
 #N Layers
 2
 #N Wavelengths

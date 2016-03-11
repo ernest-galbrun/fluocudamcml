@@ -401,17 +401,18 @@ void Simulation::LaunchSimulation(ostream &out, ostream &out_fibers){
 		    mean[i]+=n*x;
 		    var[i] += double(n) * x * x;
             copy_hist[j] = n;
-            if (i==0)
-                cout<<n<<'\t';
+           // if (i==0)
+                //cout<<n<<'\t';
 	    }
-	    cout<<'\n';
+	    //cout<<'\n';
     }
     for (int i=0;i<nf;++i){
         cout<<sqrt(var[i]) / double(n_hist_bins) / nPhotons <<'\t';
     }
+	cout << endl;
     for (int i = 0; i < N_WAVELENGTH; ++i){
         for (size_t j = 0; j < nf; ++j){
-            out_fibers << host_result_fiber[j + i* nf] /*/ scale1*/ << '\t';
+            out_fibers << host_result_fiber[j + i* nf] / scale1 << '\t';
         }
         out_fibers << endl;
     }
@@ -427,7 +428,7 @@ void Simulation::LaunchSimulation(ostream &out, ostream &out_fibers){
             double scale2=scale1*PI*(2*r+1)*DR*DR; //surface of the ring bw r*dr and (r+1)*dr
             out <<'\t'<<(double)host_result[NR*l+r]/scale2;
         }
-        out<<'\n';
+        out<<endl;
         }
     }
 }

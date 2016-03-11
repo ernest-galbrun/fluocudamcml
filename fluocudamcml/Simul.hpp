@@ -24,8 +24,8 @@ const size_t MAX_FIBERS =20;
 const unsigned int MAX_LAYERS =10;
 const size_t MAX_FLUO =3;
 
-const size_t NUM_THREADS = 200;
-const size_t NUM_BLOCKS = 100;
+const size_t NUM_THREADS = 416;
+const size_t NUM_BLOCKS = 12;
 
 struct  PhotonStruct
 {

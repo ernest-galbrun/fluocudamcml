@@ -6,6 +6,7 @@
 
 #include <ctime>
 #include <iostream>
+#include <chrono>
 
 
 using namespace std;
@@ -62,10 +63,14 @@ int main(int argc,char* argv[])
  s.SetSeed(seed);
  ofstream out(output_file);
  ofstream out_fibers(output_file_fibers);
+ auto t0 = chrono::system_clock::now();
  s.LaunchSimulation(out, out_fibers);
  /*cout << "Press ENTER to continue...";
  cin.ignore( numeric_limits<streamsize>::max(), '\n' );
  */
+ chrono::duration<double> d = chrono::system_clock::now() - t0;
+
+ cout << "simulation duration: " << d.count() * 1000 << "ms" << endl;
  return 0;  
 }
 
